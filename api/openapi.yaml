@@ -1,0 +1,2237 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: me@kennethreitz.org
+    url: https://kennethreitz.org
+  description: "A simple HTTP Request & Response Service.<br/> <br/> <b>Run locally:\
+    \ </b> <code>$ docker run -p 80:80 kennethreitz/httpbin</code>"
+  title: httpbin.org
+  version: 0.9.2
+servers:
+- url: https://httpbin.org
+tags:
+- description: Generates random and dynamic data
+  name: Dynamic data
+- description: Returns anything that is passed to request
+  name: Anything
+- description: Returns responses in different data formats
+  name: Response formats
+- description: Returns different redirect responses
+  name: Redirects
+- description: Auth methods
+  name: Auth
+- description: Generates responses with given status code
+  name: Status codes
+- description: Testing different HTTP verbs
+  name: HTTP Methods
+- description: Inspect the response data like caching and headers
+  name: Response inspection
+- description: Returns different image formats
+  name: Images
+- description: "Creates, reads and deletes Cookies"
+  name: Cookies
+- description: Inspect the request data
+  name: Request inspection
+paths:
+  /absolute-redirect/{n}:
+    get:
+      operationId: Redirects_absolutelyRedirectsN
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        default:
+          description: A redirection.
+      summary: Absolutely 302 Redirects n times.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--absolute-redirect-n
+      x-accepts: application/json
+  /anything:
+    delete:
+      operationId: Anything_getData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-delete--anything
+      x-accepts: application/json
+    get:
+      operationId: Anything_getData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--anything
+      x-accepts: application/json
+    patch:
+      operationId: Anything_getData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--anything
+      x-accepts: application/json
+    post:
+      operationId: Anything_postRequestData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--anything
+      x-accepts: application/json
+    put:
+      operationId: Anything_putRequestData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-put--anything
+      x-accepts: application/json
+    trace:
+      operationId: Anything_getPassedData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-trace--anything
+      x-accepts: application/json
+  /anything/{anything}:
+    delete:
+      operationId: Anything_getAnything
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-delete--anything-anything
+      x-accepts: application/json
+    get:
+      operationId: Anything_getData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--anything-anything
+      x-accepts: application/json
+    patch:
+      operationId: Anything_updateAnythingData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--anything-anything
+      x-accepts: application/json
+    post:
+      operationId: Anything_returnRequestData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--anything-anything
+      x-accepts: application/json
+    put:
+      operationId: Anything_returnData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-put--anything-anything
+      x-accepts: application/json
+    trace:
+      operationId: Anything_getPassedData
+      responses:
+        "200":
+          description: Anything passed in request
+      summary: Returns anything passed in request data.
+      tags:
+      - Anything
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-trace--anything-anything
+      x-accepts: application/json
+  /base64/{value}:
+    get:
+      operationId: DynamicData_decodeBase64urlString
+      parameters:
+      - explode: false
+        in: path
+        name: value
+        required: true
+        schema:
+          default: SFRUUEJJTiBpcyBhd2Vzb21l
+          example: SFRUUEJJTiBpcyBhd2Vzb21l
+          type: string
+          x-konfig-original-example: SFRUUEJJTiBpcyBhd2Vzb21l
+          x-konfig-generated-schema: konfig-generated-schema-paths--base64-value-get-parameters-0-schema
+        style: simple
+      responses:
+        "200":
+          description: Decoded base64 content.
+      summary: Decodes base64url-encoded string.
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--base64-value
+      x-accepts: application/json
+  /basic-auth/{user}/{passwd}:
+    get:
+      operationId: Auth_promptAuthorizationUsingHttpGet
+      parameters:
+      - explode: false
+        in: path
+        name: user
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: passwd
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sucessful authentication.
+        "401":
+          description: Unsuccessful authentication.
+      summary: Prompts the user for authorization using HTTP Basic Auth.
+      tags:
+      - Auth
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--basic-auth-user-passwd
+      x-accepts: application/json
+  /bearer:
+    get:
+      operationId: Auth_promptAuthorization
+      parameters:
+      - explode: false
+        in: header
+        name: Authorization
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sucessful authentication.
+        "401":
+          description: Unsuccessful authentication.
+      summary: Prompts the user for authorization using bearer authentication.
+      tags:
+      - Auth
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--bearer
+      x-accepts: application/json
+  /brotli:
+    get:
+      operationId: ResponseFormats_brotliGetData
+      responses:
+        "200":
+          description: Brotli-encoded data.
+      summary: Returns Brotli-encoded data.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--brotli
+      x-accepts: application/json
+  /bytes/{n}:
+    get:
+      operationId: DynamicData_getRandomBytes
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: Bytes.
+      summary: Returns n random bytes generated with given seed
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--bytes-n
+      x-accepts: application/json
+  /cache:
+    get:
+      operationId: ResponseInspection_notModifiedGet
+      parameters:
+      - explode: false
+        in: header
+        name: If-Modified-Since
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: If-None-Match
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Cached response
+        "304":
+          description: Modified
+      summary: Returns a 304 if an If-Modified-Since header or If-None-Match is present.
+        Returns the same as a GET otherwise.
+      tags:
+      - Response inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--cache
+      x-accepts: application/json
+  /cache/{value}:
+    get:
+      operationId: ResponseInspection_cacheControlSet
+      parameters:
+      - explode: false
+        in: path
+        name: value
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Cache control set
+      summary: Sets a Cache-Control header for n seconds.
+      tags:
+      - Response inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--cache-value
+      x-accepts: application/json
+  /cookies:
+    get:
+      operationId: Cookies_getData
+      responses:
+        "200":
+          description: Set cookies.
+      summary: Returns cookie data.
+      tags:
+      - Cookies
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--cookies
+      x-accepts: application/json
+  /cookies/delete:
+    get:
+      operationId: Cookies_deleteRedirectToCookieList
+      parameters:
+      - allowEmptyValue: true
+        explode: true
+        in: query
+        name: freeform
+        required: false
+        schema:
+          additionalProperties:
+            type: string
+          type: object
+        style: form
+      responses:
+        "200":
+          description: Redirect to cookie list
+      summary: Deletes cookie(s) as provided by the query string and redirects to
+        cookie list.
+      tags:
+      - Cookies
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--cookies-delete
+      x-accepts: application/json
+  /cookies/set:
+    get:
+      operationId: Cookies_setRedirect
+      parameters:
+      - allowEmptyValue: true
+        explode: true
+        in: query
+        name: freeform
+        required: false
+        schema:
+          additionalProperties:
+            type: string
+          type: object
+        style: form
+      responses:
+        "200":
+          description: Redirect to cookie list
+      summary: Sets cookie(s) as provided by the query string and redirects to cookie
+        list.
+      tags:
+      - Cookies
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--cookies-set
+      x-accepts: application/json
+  /cookies/set/{name}/{value}:
+    get:
+      operationId: Cookies_setCookieRedirect
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: value
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Set cookies and redirects to cookie list.
+      summary: Sets a cookie and redirects to cookie list.
+      tags:
+      - Cookies
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--cookies-set-name-value
+      x-accepts: application/json
+  /deflate:
+    get:
+      operationId: ResponseFormats_deflateDataGet
+      responses:
+        "200":
+          description: Defalte-encoded data.
+      summary: Returns Deflate-encoded data.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--deflate
+      x-accepts: application/json
+  /delay/{delay}:
+    delete:
+      operationId: DynamicData_delayedResponseDelete
+      parameters:
+      - explode: false
+        in: path
+        name: delay
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: A delayed response.
+      summary: Returns a delayed response (max of 10 seconds).
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-delete--delay-delay
+      x-accepts: application/json
+    get:
+      operationId: DynamicData_delayedResponseGet
+      parameters:
+      - explode: false
+        in: path
+        name: delay
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: A delayed response.
+      summary: Returns a delayed response (max of 10 seconds).
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--delay-delay
+      x-accepts: application/json
+    patch:
+      operationId: DynamicData_returnDelayedResponse
+      parameters:
+      - explode: false
+        in: path
+        name: delay
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: A delayed response.
+      summary: Returns a delayed response (max of 10 seconds).
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--delay-delay
+      x-accepts: application/json
+    post:
+      operationId: DynamicData_returnDelayedResponse
+      parameters:
+      - explode: false
+        in: path
+        name: delay
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: A delayed response.
+      summary: Returns a delayed response (max of 10 seconds).
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--delay-delay
+      x-accepts: application/json
+    put:
+      operationId: DynamicData_returnDelayedResponse
+      parameters:
+      - explode: false
+        in: path
+        name: delay
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: A delayed response.
+      summary: Returns a delayed response (max of 10 seconds).
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-put--delay-delay
+      x-accepts: application/json
+    trace:
+      operationId: DynamicData_returnDelayedResponseTrace
+      parameters:
+      - explode: false
+        in: path
+        name: delay
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: A delayed response.
+      summary: Returns a delayed response (max of 10 seconds).
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-trace--delay-delay
+      x-accepts: application/json
+  /delete:
+    delete:
+      operationId: HttpMethods_deleteRequestParameters
+      responses:
+        "200":
+          description: The request's DELETE parameters.
+      summary: The request's DELETE parameters.
+      tags:
+      - HTTP Methods
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-delete--delete
+      x-accepts: application/json
+  /deny:
+    get:
+      operationId: ResponseFormats_deniedPageGet
+      responses:
+        "200":
+          description: Denied message
+      summary: Returns page denied by robots.txt rules.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--deny
+      x-accepts: application/json
+  /digest-auth/{qop}/{user}/{passwd}:
+    get:
+      operationId: Auth_digestAuthPrompt
+      parameters:
+      - description: auth or auth-int
+        explode: false
+        in: path
+        name: qop
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: user
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: passwd
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sucessful authentication.
+        "401":
+          description: Unsuccessful authentication.
+      summary: Prompts the user for authorization using Digest Auth.
+      tags:
+      - Auth
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--digest-auth-qop-user-passwd
+      x-accepts: application/json
+  /digest-auth/{qop}/{user}/{passwd}/{algorithm}:
+    get:
+      operationId: Auth_userAuthorizationDigest
+      parameters:
+      - description: auth or auth-int
+        explode: false
+        in: path
+        name: qop
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: user
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: passwd
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "MD5, SHA-256, SHA-512"
+        explode: false
+        in: path
+        name: algorithm
+        required: true
+        schema:
+          default: MD5
+          example: MD5
+          type: string
+          x-konfig-original-example: MD5
+          x-konfig-generated-schema: konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-get-parameters-3-schema
+        style: simple
+      responses:
+        "200":
+          description: Sucessful authentication.
+        "401":
+          description: Unsuccessful authentication.
+      summary: Prompts the user for authorization using Digest Auth + Algorithm.
+      tags:
+      - Auth
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--digest-auth-qop-user-passwd-algorithm
+      x-accepts: application/json
+  /digest-auth/{qop}/{user}/{passwd}/{algorithm}/{stale_after}:
+    get:
+      description: |
+        allow settings the stale_after argument.
+      operationId: Auth_promptAuthorizationUsingDigest
+      parameters:
+      - description: auth or auth-int
+        explode: false
+        in: path
+        name: qop
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: user
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: passwd
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "MD5, SHA-256, SHA-512"
+        explode: false
+        in: path
+        name: algorithm
+        required: true
+        schema:
+          default: MD5
+          example: MD5
+          type: string
+          x-konfig-original-example: MD5
+          x-konfig-generated-schema: konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-stale_after-get-parameters-3-schema
+        style: simple
+      - explode: false
+        in: path
+        name: stale_after
+        required: true
+        schema:
+          default: never
+          example: never
+          type: string
+          x-konfig-original-example: never
+          x-konfig-generated-schema: konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-stale_after-get-parameters-4-schema
+        style: simple
+      responses:
+        "200":
+          description: Sucessful authentication.
+        "401":
+          description: Unsuccessful authentication.
+      summary: Prompts the user for authorization using Digest Auth + Algorithm.
+      tags:
+      - Auth
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--digest-auth-qop-user-passwd-algorithm-stale_after
+      x-accepts: application/json
+  /drip:
+    get:
+      operationId: DynamicData_dripDataOverDuration
+      parameters:
+      - description: The amount of time (in seconds) over which to drip each byte
+        explode: true
+        in: query
+        name: duration
+        required: false
+        schema:
+          default: 2
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-0-schema
+        style: form
+      - description: The number of bytes to respond with
+        explode: true
+        in: query
+        name: numbytes
+        required: false
+        schema:
+          default: 10
+          example: 10
+          type: integer
+          x-konfig-original-example: 10
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-1-schema
+        style: form
+      - description: The response code that will be returned
+        explode: true
+        in: query
+        name: code
+        required: false
+        schema:
+          default: 200
+          example: 200
+          type: integer
+          x-konfig-original-example: 200
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-2-schema
+        style: form
+      - description: The amount of time (in seconds) to delay before responding
+        explode: true
+        in: query
+        name: delay
+        required: false
+        schema:
+          default: 2
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-3-schema
+        style: form
+      responses:
+        "200":
+          description: A dripped response.
+      summary: Drips data over a duration after an optional initial delay.
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--drip
+      x-accepts: application/json
+  /encoding/utf8:
+    get:
+      operationId: ResponseFormats_utf8BodyGet
+      responses:
+        "200":
+          description: Encoded UTF-8 content.
+      summary: Returns a UTF-8 encoded body.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--encoding-utf8
+      x-accepts: application/json
+  /etag/{etag}:
+    get:
+      operationId: ResponseInspection_resourceInspectionGet
+      parameters:
+      - explode: false
+        in: header
+        name: If-None-Match
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: If-Match
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Normal response
+        "412":
+          description: match
+      summary: Assumes the resource has the given etag and responds to If-None-Match
+        and If-Match headers appropriately.
+      tags:
+      - Response inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--etag-etag
+      x-accepts: application/json
+  /get:
+    get:
+      operationId: HttpMethods_requestQueryParametersGet
+      responses:
+        "200":
+          description: The request's query parameters.
+      summary: The request's query parameters.
+      tags:
+      - HTTP Methods
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--get
+      x-accepts: application/json
+  /gzip:
+    get:
+      operationId: ResponseFormats_gzipDataGet
+      responses:
+        "200":
+          description: GZip-encoded data.
+      summary: Returns GZip-encoded data.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--gzip
+      x-accepts: application/json
+  /headers:
+    get:
+      operationId: RequestInspection_incomingHeadersGet
+      responses:
+        "200":
+          description: The request's headers.
+      summary: Return the incoming request's HTTP headers.
+      tags:
+      - Request inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--headers
+      x-accepts: application/json
+  /hidden-basic-auth/{user}/{passwd}:
+    get:
+      operationId: Auth_promptUserAuthorization
+      parameters:
+      - explode: false
+        in: path
+        name: user
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: passwd
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Sucessful authentication.
+        "404":
+          description: Unsuccessful authentication.
+      summary: Prompts the user for authorization using HTTP Basic Auth.
+      tags:
+      - Auth
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--hidden-basic-auth-user-passwd
+      x-accepts: application/json
+  /html:
+    get:
+      operationId: ResponseFormats_simpleHtmlGet
+      responses:
+        "200":
+          description: An HTML page.
+      summary: Returns a simple HTML document.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--html
+      x-accepts: application/json
+  /image:
+    get:
+      operationId: Images_getByAcceptHeader
+      responses:
+        "200":
+          description: An image.
+      summary: Returns a simple image of the type suggest by the Accept header.
+      tags:
+      - Images
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--image
+      x-accepts: application/json
+  /image/jpeg:
+    get:
+      operationId: Images_getJpegImage
+      responses:
+        "200":
+          description: A JPEG image.
+      summary: Returns a simple JPEG image.
+      tags:
+      - Images
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--image-jpeg
+      x-accepts: application/json
+  /image/png:
+    get:
+      operationId: Images_getPngImage
+      responses:
+        "200":
+          description: A PNG image.
+      summary: Returns a simple PNG image.
+      tags:
+      - Images
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--image-png
+      x-accepts: application/json
+  /image/svg:
+    get:
+      operationId: Images_getSvgImage
+      responses:
+        "200":
+          description: An SVG image.
+      summary: Returns a simple SVG image.
+      tags:
+      - Images
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--image-svg
+      x-accepts: application/json
+  /image/webp:
+    get:
+      operationId: Images_getWebpImage
+      responses:
+        "200":
+          description: A WEBP image.
+      summary: Returns a simple WEBP image.
+      tags:
+      - Images
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--image-webp
+      x-accepts: application/json
+  /ip:
+    get:
+      operationId: RequestInspection_ipAddressGet
+      responses:
+        "200":
+          description: The Requester's IP Address.
+      summary: Returns the requester's IP Address.
+      tags:
+      - Request inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--ip
+      x-accepts: application/json
+  /json:
+    get:
+      operationId: ResponseFormats_simpleJsonGet
+      responses:
+        "200":
+          description: An JSON document.
+      summary: Returns a simple JSON document.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--json
+      x-accepts: application/json
+  /links/{n}/{offset}:
+    get:
+      operationId: DynamicData_generatePageContainingLinks
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      - explode: false
+        in: path
+        name: offset
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: HTML links.
+      summary: Generate a page containing n links to other pages which do the same.
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--links-n-offset
+      x-accepts: application/json
+  /patch:
+    patch:
+      operationId: HttpMethods_updateRequestParameters
+      responses:
+        "200":
+          description: The request's PATCH parameters.
+      summary: The request's PATCH parameters.
+      tags:
+      - HTTP Methods
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--patch
+      x-accepts: application/json
+  /post:
+    post:
+      operationId: HttpMethods_postRequestParameters
+      responses:
+        "200":
+          description: The request's POST parameters.
+      summary: The request's POST parameters.
+      tags:
+      - HTTP Methods
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--post
+      x-accepts: application/json
+  /put:
+    put:
+      operationId: HttpMethods_putRequestParameters
+      responses:
+        "200":
+          description: The request's PUT parameters.
+      summary: The request's PUT parameters.
+      tags:
+      - HTTP Methods
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-put--put
+      x-accepts: application/json
+  /range/{numbytes}:
+    get:
+      operationId: DynamicData_streamRandomBytes
+      parameters:
+      - explode: false
+        in: path
+        name: numbytes
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: Bytes.
+      summary: "Streams n random bytes generated with given seed, at given chunk size\
+        \ per packet."
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--range-numbytes
+      x-accepts: application/json
+  /redirect-to:
+    delete:
+      operationId: Redirects_toGivenUrlDelete
+      responses:
+        default:
+          description: A redirection.
+      summary: 302/3XX Redirects to the given URL.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-delete--redirect-to
+      x-accepts: application/json
+    get:
+      operationId: Redirects_toGivenUrlGet
+      parameters:
+      - explode: true
+        in: query
+        name: url
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: status_code
+        required: false
+        schema:
+          type: int
+        style: form
+      responses:
+        default:
+          description: A redirection.
+      summary: 302/3XX Redirects to the given URL.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--redirect-to
+      x-accepts: application/json
+    patch:
+      operationId: Redirects_toGivenUrlPatch
+      responses:
+        default:
+          description: A redirection.
+      summary: 302/3XX Redirects to the given URL.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--redirect-to
+      x-accepts: application/json
+    post:
+      operationId: Redirects_toGivenUrlPost
+      requestBody:
+        $ref: '#/components/requestBodies/postRedirectTo'
+      responses:
+        default:
+          description: A redirection.
+      summary: 302/3XX Redirects to the given URL.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--redirect-to
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+    put:
+      operationId: Redirects_givenUrlPutRedirect
+      requestBody:
+        $ref: '#/components/requestBodies/postRedirectTo'
+      responses:
+        default:
+          description: A redirection.
+      summary: 302/3XX Redirects to the given URL.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-put--redirect-to
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+    trace:
+      operationId: Redirects_toGivenUrlTrace
+      responses:
+        default:
+          description: A redirection.
+      summary: 302/3XX Redirects to the given URL.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-trace--redirect-to
+      x-accepts: application/json
+  /redirect/{n}:
+    get:
+      operationId: Redirects_302RedirectsN
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        default:
+          description: A redirection.
+      summary: 302 Redirects n times.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--redirect-n
+      x-accepts: application/json
+  /relative-redirect/{n}:
+    get:
+      operationId: Redirects_relatively302RedirectsN
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        default:
+          description: A redirection.
+      summary: Relatively 302 Redirects n times.
+      tags:
+      - Redirects
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--relative-redirect-n
+      x-accepts: application/json
+  /response-headers:
+    get:
+      operationId: ResponseInspection_queryHeadersGet
+      parameters:
+      - allowEmptyValue: true
+        explode: true
+        in: query
+        name: freeform
+        required: false
+        schema:
+          additionalProperties:
+            type: string
+          type: object
+        style: form
+      responses:
+        "200":
+          description: Response headers
+      summary: Returns a set of response headers from the query string.
+      tags:
+      - Response inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--response-headers
+      x-accepts: application/json
+    post:
+      operationId: ResponseInspection_getResponseHeaders
+      parameters:
+      - allowEmptyValue: true
+        explode: true
+        in: query
+        name: freeform
+        required: false
+        schema:
+          additionalProperties:
+            type: string
+          type: object
+        style: form
+      responses:
+        "200":
+          description: Response headers
+      summary: Returns a set of response headers from the query string.
+      tags:
+      - Response inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--response-headers
+      x-accepts: application/json
+  /robots.txt:
+    get:
+      operationId: ResponseFormats_getRobotsRules
+      responses:
+        "200":
+          description: Robots file
+      summary: Returns some robots.txt rules.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--robots.txt
+      x-accepts: application/json
+  /status/{codes}:
+    delete:
+      operationId: StatusCodes_returnRandomCode
+      parameters:
+      - explode: false
+        in: path
+        name: codes
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "100":
+          description: Informational responses
+        "200":
+          description: Success
+        "300":
+          description: Redirection
+        "400":
+          description: Client Errors
+        "500":
+          description: Server Errors
+      summary: Return status code or random status code if more than one are given
+      tags:
+      - Status codes
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-delete--status-codes
+      x-accepts: application/json
+    get:
+      operationId: StatusCodes_returnRandomCode
+      parameters:
+      - explode: false
+        in: path
+        name: codes
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "100":
+          description: Informational responses
+        "200":
+          description: Success
+        "300":
+          description: Redirection
+        "400":
+          description: Client Errors
+        "500":
+          description: Server Errors
+      summary: Return status code or random status code if more than one are given
+      tags:
+      - Status codes
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--status-codes
+      x-accepts: application/json
+    patch:
+      operationId: StatusCodes_returnRandomCode
+      parameters:
+      - explode: false
+        in: path
+        name: codes
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "100":
+          description: Informational responses
+        "200":
+          description: Success
+        "300":
+          description: Redirection
+        "400":
+          description: Client Errors
+        "500":
+          description: Server Errors
+      summary: Return status code or random status code if more than one are given
+      tags:
+      - Status codes
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-patch--status-codes
+      x-accepts: application/json
+    post:
+      operationId: StatusCodes_returnRandomCode
+      parameters:
+      - explode: false
+        in: path
+        name: codes
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "100":
+          description: Informational responses
+        "200":
+          description: Success
+        "300":
+          description: Redirection
+        "400":
+          description: Client Errors
+        "500":
+          description: Server Errors
+      summary: Return status code or random status code if more than one are given
+      tags:
+      - Status codes
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--status-codes
+      x-accepts: application/json
+    put:
+      operationId: StatusCodes_returnRandomCode
+      parameters:
+      - explode: false
+        in: path
+        name: codes
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "100":
+          description: Informational responses
+        "200":
+          description: Success
+        "300":
+          description: Redirection
+        "400":
+          description: Client Errors
+        "500":
+          description: Server Errors
+      summary: Return status code or random status code if more than one are given
+      tags:
+      - Status codes
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-put--status-codes
+      x-accepts: application/json
+    trace:
+      operationId: StatusCodes_returnRandomCode
+      parameters:
+      - explode: false
+        in: path
+        name: codes
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "100":
+          description: Informational responses
+        "200":
+          description: Success
+        "300":
+          description: Redirection
+        "400":
+          description: Client Errors
+        "500":
+          description: Server Errors
+      summary: Return status code or random status code if more than one are given
+      tags:
+      - Status codes
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-trace--status-codes
+      x-accepts: application/json
+  /stream-bytes/{n}:
+    get:
+      operationId: DynamicData_streamRandomBytes
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: Bytes.
+      summary: "Streams n random bytes generated with given seed, at given chunk size\
+        \ per packet."
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--stream-bytes-n
+      x-accepts: application/json
+  /stream/{n}:
+    get:
+      operationId: DynamicData_streamJsonResponses
+      parameters:
+      - explode: false
+        in: path
+        name: "n"
+        required: true
+        schema:
+          type: int
+        style: simple
+      responses:
+        "200":
+          description: Streamed JSON responses.
+      summary: Stream n JSON responses
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--stream-n
+      x-accepts: application/json
+  /user-agent:
+    get:
+      operationId: RequestInspection_userAgentGet
+      responses:
+        "200":
+          description: The request's User-Agent header.
+      summary: Return the incoming requests's User-Agent header.
+      tags:
+      - Request inspection
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--user-agent
+      x-accepts: application/json
+  /uuid:
+    get:
+      operationId: DynamicData_generateUuid
+      responses:
+        "200":
+          description: A UUID4.
+      summary: Return a UUID4.
+      tags:
+      - Dynamic data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--uuid
+      x-accepts: application/json
+  /xml:
+    get:
+      operationId: ResponseFormats_simpleXmlGet
+      responses:
+        "200":
+          description: An XML document.
+      summary: Returns a simple XML document.
+      tags:
+      - Response formats
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--xml
+      x-accepts: application/json
+components:
+  requestBodies:
+    postRedirectTo:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RedirectsToGivenUrlPostRequest'
+      required: true
+  schemas:
+    RedirectsToGivenUrlPostRequest:
+      properties:
+        url:
+          type: string
+        status_code:
+          type: int
+      required:
+      - url
+      type: object
+    konfig-generated-schema-paths--base64-value-get-parameters-0-schema:
+      example: SFRUUEJJTiBpcyBhd2Vzb21l
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-get-parameters-3-schema:
+      example: MD5
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-stale_after-get-parameters-3-schema:
+      example: MD5
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-stale_after-get-parameters-4-schema:
+      example: never
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--drip-get-parameters-0-schema:
+      example: 2
+      type: number
+      x-do-not-generate: true
+    konfig-generated-schema-paths--drip-get-parameters-1-schema:
+      example: 10
+      type: number
+      x-do-not-generate: true
+    konfig-generated-schema-paths--drip-get-parameters-2-schema:
+      example: 200
+      type: number
+      x-do-not-generate: true
+    konfig-generated-schema-paths--drip-get-parameters-3-schema:
+      example: 2
+      type: number
+      x-do-not-generate: true
+    konfig-generated-schema-single-parameter-schema-get--absolute-redirect-n:
+      properties:
+        "n":
+          type: int
+      required:
+      - "n"
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+    konfig-generated-schema-single-parameter-schema-delete--anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-patch--anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-post--anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-put--anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-trace--anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-delete--anything-anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--anything-anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-patch--anything-anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-post--anything-anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-put--anything-anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-trace--anything-anything:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--base64-value:
+      properties:
+        value:
+          default: SFRUUEJJTiBpcyBhd2Vzb21l
+          example: SFRUUEJJTiBpcyBhd2Vzb21l
+          type: string
+          x-konfig-original-example: SFRUUEJJTiBpcyBhd2Vzb21l
+          x-konfig-generated-schema: konfig-generated-schema-paths--base64-value-get-parameters-0-schema
+      required:
+      - value
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - value
+    konfig-generated-schema-single-parameter-schema-get--basic-auth-user-passwd:
+      properties:
+        user:
+          type: string
+        passwd:
+          type: string
+      required:
+      - passwd
+      - user
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - user
+      - passwd
+    konfig-generated-schema-single-parameter-schema-get--bearer:
+      properties:
+        Authorization:
+          type: string
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - Authorization
+    konfig-generated-schema-single-parameter-schema-get--brotli:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--bytes-n:
+      properties:
+        "n":
+          type: int
+      required:
+      - "n"
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+    konfig-generated-schema-single-parameter-schema-get--cache:
+      properties:
+        If-Modified-Since:
+          type: string
+        If-None-Match:
+          type: string
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - If-Modified-Since
+      - If-None-Match
+    konfig-generated-schema-single-parameter-schema-get--cache-value:
+      properties:
+        value:
+          type: integer
+      required:
+      - value
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - value
+    konfig-generated-schema-single-parameter-schema-get--cookies:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--cookies-delete:
+      properties:
+        freeform:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - freeform
+    konfig-generated-schema-single-parameter-schema-get--cookies-set:
+      properties:
+        freeform:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - freeform
+    konfig-generated-schema-single-parameter-schema-get--cookies-set-name-value:
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      required:
+      - name
+      - value
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - name
+      - value
+    konfig-generated-schema-single-parameter-schema-get--deflate:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-delete--delay-delay:
+      properties:
+        delay:
+          type: int
+      required:
+      - delay
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - delay
+    konfig-generated-schema-single-parameter-schema-get--delay-delay:
+      properties:
+        delay:
+          type: int
+      required:
+      - delay
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - delay
+    konfig-generated-schema-single-parameter-schema-patch--delay-delay:
+      properties:
+        delay:
+          type: int
+      required:
+      - delay
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - delay
+    konfig-generated-schema-single-parameter-schema-post--delay-delay:
+      properties:
+        delay:
+          type: int
+      required:
+      - delay
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - delay
+    konfig-generated-schema-single-parameter-schema-put--delay-delay:
+      properties:
+        delay:
+          type: int
+      required:
+      - delay
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - delay
+    konfig-generated-schema-single-parameter-schema-trace--delay-delay:
+      properties:
+        delay:
+          type: int
+      required:
+      - delay
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - delay
+    konfig-generated-schema-single-parameter-schema-delete--delete:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--deny:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--digest-auth-qop-user-passwd:
+      properties:
+        qop:
+          type: string
+        user:
+          type: string
+        passwd:
+          type: string
+      required:
+      - passwd
+      - qop
+      - user
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - qop
+      - user
+      - passwd
+    konfig-generated-schema-single-parameter-schema-get--digest-auth-qop-user-passwd-algorithm:
+      properties:
+        qop:
+          type: string
+        user:
+          type: string
+        passwd:
+          type: string
+        algorithm:
+          default: MD5
+          example: MD5
+          type: string
+          x-konfig-original-example: MD5
+          x-konfig-generated-schema: konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-get-parameters-3-schema
+      required:
+      - algorithm
+      - passwd
+      - qop
+      - user
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - qop
+      - user
+      - passwd
+      - algorithm
+    konfig-generated-schema-single-parameter-schema-get--digest-auth-qop-user-passwd-algorithm-stale_after:
+      properties:
+        qop:
+          type: string
+        user:
+          type: string
+        passwd:
+          type: string
+        algorithm:
+          default: MD5
+          example: MD5
+          type: string
+          x-konfig-original-example: MD5
+          x-konfig-generated-schema: konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-stale_after-get-parameters-3-schema
+        stale_after:
+          default: never
+          example: never
+          type: string
+          x-konfig-original-example: never
+          x-konfig-generated-schema: konfig-generated-schema-paths--digest-auth-qop-user-passwd-algorithm-stale_after-get-parameters-4-schema
+      required:
+      - algorithm
+      - passwd
+      - qop
+      - stale_after
+      - user
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - qop
+      - user
+      - passwd
+      - algorithm
+      - stale_after
+    konfig-generated-schema-single-parameter-schema-get--drip:
+      properties:
+        duration:
+          default: 2
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-0-schema
+        numbytes:
+          default: 10
+          example: 10
+          type: integer
+          x-konfig-original-example: 10
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-1-schema
+        code:
+          default: 200
+          example: 200
+          type: integer
+          x-konfig-original-example: 200
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-2-schema
+        delay:
+          default: 2
+          example: 2
+          type: number
+          x-konfig-original-example: 2
+          x-konfig-generated-schema: konfig-generated-schema-paths--drip-get-parameters-3-schema
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - duration
+      - numbytes
+      - code
+      - delay
+    konfig-generated-schema-single-parameter-schema-get--encoding-utf8:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--etag-etag:
+      properties:
+        If-None-Match:
+          type: string
+        If-Match:
+          type: string
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - If-None-Match
+      - If-Match
+    konfig-generated-schema-single-parameter-schema-get--get:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--gzip:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--headers:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--hidden-basic-auth-user-passwd:
+      properties:
+        user:
+          type: string
+        passwd:
+          type: string
+      required:
+      - passwd
+      - user
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - user
+      - passwd
+    konfig-generated-schema-single-parameter-schema-get--html:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--image:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--image-jpeg:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--image-png:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--image-svg:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--image-webp:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--ip:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--json:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--links-n-offset:
+      properties:
+        "n":
+          type: int
+        offset:
+          type: int
+      required:
+      - "n"
+      - offset
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+      - offset
+    konfig-generated-schema-single-parameter-schema-patch--patch:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-post--post:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-put--put:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--range-numbytes:
+      properties:
+        numbytes:
+          type: int
+      required:
+      - numbytes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - numbytes
+    konfig-generated-schema-single-parameter-schema-delete--redirect-to:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--redirect-to:
+      properties:
+        url:
+          type: string
+        status_code:
+          type: int
+      required:
+      - url
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - url
+      - status_code
+    konfig-generated-schema-single-parameter-schema-patch--redirect-to:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-post--redirect-to:
+      properties:
+        url:
+          type: string
+        status_code:
+          type: int
+      required:
+      - url
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-put--redirect-to:
+      properties:
+        url:
+          type: string
+        status_code:
+          type: int
+      required:
+      - url
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-trace--redirect-to:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--redirect-n:
+      properties:
+        "n":
+          type: int
+      required:
+      - "n"
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+    konfig-generated-schema-single-parameter-schema-get--relative-redirect-n:
+      properties:
+        "n":
+          type: int
+      required:
+      - "n"
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+    konfig-generated-schema-single-parameter-schema-get--response-headers:
+      properties:
+        freeform:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - freeform
+    konfig-generated-schema-single-parameter-schema-post--response-headers:
+      properties:
+        freeform:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - freeform
+    konfig-generated-schema-single-parameter-schema-get--robots.txt:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-delete--status-codes:
+      properties:
+        codes:
+          type: string
+      required:
+      - codes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - codes
+    konfig-generated-schema-single-parameter-schema-get--status-codes:
+      properties:
+        codes:
+          type: string
+      required:
+      - codes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - codes
+    konfig-generated-schema-single-parameter-schema-patch--status-codes:
+      properties:
+        codes:
+          type: string
+      required:
+      - codes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - codes
+    konfig-generated-schema-single-parameter-schema-post--status-codes:
+      properties:
+        codes:
+          type: string
+      required:
+      - codes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - codes
+    konfig-generated-schema-single-parameter-schema-put--status-codes:
+      properties:
+        codes:
+          type: string
+      required:
+      - codes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - codes
+    konfig-generated-schema-single-parameter-schema-trace--status-codes:
+      properties:
+        codes:
+          type: string
+      required:
+      - codes
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - codes
+    konfig-generated-schema-single-parameter-schema-get--stream-bytes-n:
+      properties:
+        "n":
+          type: int
+      required:
+      - "n"
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+    konfig-generated-schema-single-parameter-schema-get--stream-n:
+      properties:
+        "n":
+          type: int
+      required:
+      - "n"
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - "n"
+    konfig-generated-schema-single-parameter-schema-get--user-agent:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--uuid:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--xml:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+
